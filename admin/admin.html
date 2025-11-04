@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Admin — Barbero Express</title>
+<style>
+  body{font-family:Inter,system-ui,Arial;background:#0f1115;color:#fff;padding:24px}
+  .card{max-width:540px;margin:20px auto;padding:18px;border-radius:8px;background:#121316}
+  label{display:flex;justify-content:space-between;margin:10px 0}
+  input{padding:8px;border-radius:6px;border:1px solid #333;background:#0b0b0b;color:#fff}
+  button{margin-top:10px;padding:10px 14px;border-radius:8px;border:none;background:#d4af37;color:#000;cursor:pointer}
+  .small{font-size:.9rem;color:#bdbdbd}
+  #panel{display:none}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2>Panel de Precios — Barbero Express</h2>
+    <div id="loginBox">
+      <p class="small">Iniciá sesión con tu usuario (email) y contraseña</p>
+      <label><span>Email</span><input id="email" type="email" /></label>
+      <label><span>Contraseña</span><input id="password" type="password" /></label>
+      <button id="loginBtn">Entrar</button>
+      <p class="small">Si no tenés usuario, crealo en Firebase Console → Authentication → Users → Add user.</p>
+    </div>
+
+    <div id="panel">
+      <p class="small">Bienvenido — aquí podés actualizar los precios</p>
+
+      <label><span>Corte Express</span><input id="inputCorteExpress" type="number" min="0" /></label>
+      <label><span>Barba Perfecta</span><input id="inputBarbaPerfecta" type="number" min="0" /></label>
+      <label><span>Afeitado Clásico</span><input id="inputAfeitadoClasico" type="number" min="0" /></label>
+      <label><span>Combo Completo</span><input id="inputComboCompleto" type="number" min="0" /></label>
+
+      <button id="saveBtn">Guardar</button>
+      <button id="logoutBtn" style="margin-left:8px;background:#333;color:#fff;">Cerrar sesión</button>
+
+      <p id="msg" class="small"></p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+    // --- tu firebaseConfig (pegar exactamente como en Firebase) ---
+    const firebaseConfig = {
+      apiKey: "AIzaSyCTF-kb3OxYv1VJ1qKYbDSaXlV-0czhHGI",
+      authDomain: "barbero-express-a4db5.firebaseapp.com",
+      projectId: "barbero-express-a4db5",
+      storageBucket: "barbero-express-a4db5.firebasestorage.app",
+      messagingSenderId: "754219692587",
+      appId: "1:754219692587:web:bce555736ccf9b883bb06e",
+      measurementId: "G-SV2N5J71GY"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const loginBox = document.getElementById("loginBox");
+    const panel = document.getElementById("panel");
+    const msg = document.getElementById("msg");
+
+    const emailInput = document.getElementById("email");
+    const passInput = document.getElementById("password");
+    const loginBtn = document.getElementById("loginBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const saveBtn = document.getElementById("saveBtn");
+
+    const inCorte = document.getElementById("inputCorteExpress");
+    const inBarba = document.getElementById("inputBarbaPerfecta");
+    const inAfeitado = document.getElementById("inputAfeitadoClasico");
+    const inCombo = document.getElementById("inputComboCompleto");
+
+    const preciosRef = doc(db, "precios", "servicios");
+
+    // Login
+    loginBtn.addEventListener("click", async () => {
+      const email = emailInput.value.trim();
+      const pass = passInput.value;
+      if(!email || !pass) return alert("Completá email y contraseña");
+      try {
+        await signInWithEmailAndPassword(auth, email, pass);
+      } catch (err) {
+        alert("Error al iniciar sesión: " + err.message);
+      }
+    });
+
+    // Logout
+    logoutBtn.addEventListener("click", () => signOut(auth));
+
+    // Observador de estado auth
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        loginBox.style.display = "none";
+        panel.style.display = "block";
+        msg.textContent = "Cargando datos...";
+        // cargar valores actuales
+        try {
+          const snap = await getDoc(preciosRef);
+          const d = snap.exists() ? snap.data() : {};
+          inCorte.value = d.corte_express ?? "";
+          inBarba.value = d.barba_perfecta ?? "";
+          inAfeitado.value = d.afeitado_clasico ?? "";
+          inCombo.value = d.combo_completo ?? "";
+          msg.textContent = "";
+        } catch (err) {
+          msg.textContent = "Error al cargar precios: " + err.message;
+        }
+      } else {
+        panel.style.display = "none";
+        loginBox.style.display = "block";
+        msg.textContent = "";
+      }
+    });
+
+    // Guardar cambios
+    saveBtn.addEventListener("click", async () => {
+      const payload = {
+        corte_express: Number(inCorte.value) || 0,
+        barba_perfecta: Number(inBarba.value) || 0,
+        afeitado_clasico: Number(inAfeitado.value) || 0,
+        combo_completo: Number(inCombo.value) || 0
+      };
+      msg.textContent = "Guardando...";
+      try {
+        await setDoc(preciosRef, payload, { merge: true });
+        msg.textContent = "✅ Precios actualizados";
+        setTimeout(()=> msg.textContent = "", 3000);
+      } catch (err) {
+        msg.textContent = "Error guardando: " + err.message;
+      }
+    });
+  </script>
+</body>
+</html>

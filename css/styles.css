@@ -285,6 +285,13 @@
             font-size: 1rem;
         }
 
+        .tachado span {
+            text-decoration: line-through;
+            font-size: 1.2rem;
+            opacity: 0.6;
+            margin-bottom: 0.5rem;
+        }
+
         .price {
             font-size: 2.5rem;
             font-weight: bold;
@@ -315,6 +322,94 @@
             background: #a60000;
             transform: scale(1.05);
         }
+
+
+        /* ===== SECCIÓN CURSOS ===== */
+    .courses {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #1a1a1a 0%, #000 100%);
+  text-align: center;
+  color: #fff;
+}
+
+    .courses .section-title {
+  font-size: 2.5rem;
+  color: #D4AF37;
+  margin-bottom: 20px;
+}
+
+    .courses .section-description {
+  font-size: 1.1rem;
+  color: #ccc;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+    .course-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+    .course-image {
+  position: relative;
+  max-width: 400px;
+  overflow: hidden;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  border: 2px solid transparent;
+}
+
+    .course-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  transition: transform 0.4s ease;
+}
+
+    .course-image:hover img {
+  transform: scale(1.05);
+}
+
+    .course-image:hover {
+  border-color: #D4AF37;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+}
+
+    .course-content {
+  max-width: 500px;
+  text-align: left;
+}
+
+    .course-content h3 {
+  color: #D4AF37;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+    .course-content p {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+    .course-content .btn-primary {
+  background-color: #D4AF37;
+  color: #1a1a1a;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+    .course-content .btn-primary:hover {
+  background-color: #fff;
+  color: #000;
+}
+
 
         /* ABOUT SECTION */
         .about {
@@ -592,8 +687,8 @@
         }
 
         .logo-footer-container img {
-            height: 250px;
-            width: 250px;
+            height: 200px;
+            width: 200px;
             border-radius: 100%;
             margin-bottom: 2rem;
             text-align: right;
@@ -707,8 +802,8 @@
             margin-bottom: 1.5rem;
             animation: fadeIn 0.8s ease forwards;
             border-radius: 100%;
-            border-color: #D4AF37;
-            border-style: solid;
+            border-color: #942525;
+            border-radius: 100%;
         }
         .loading-screen.hidden {
             opacity: 0;
@@ -860,18 +955,54 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                flex-direction: column;
+                width: 100%;
+                background: var(--secondary);
+                position: absolute;
+                top: 70px;
+                left: 0;
             }
 
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 1rem 2rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links li:last-child a {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+
             .navbar {
-                padding: 1rem 3%;
+                flex-wrap: wrap;
+                padding: 10px 20px;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+            font-size: 2.2rem;
+                line-height: 1.2;
+                color: #cfcabf;
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            }
+
+            .hero .description {
+                font-size: 1rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                 max-width: 600px;
+                margin: 10px auto;
+                font-size: 1rem;
+                color: #eee;
             }
 
             .hero .subtitle {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
 
             .hero-buttons {
@@ -879,7 +1010,7 @@
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .services-grid,
@@ -906,4 +1037,161 @@
                 bottom: 80px;
                 right: 20px;
             }
-        }
+            }
+            .cta-btn {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            background: var(--accent);
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            }
+
+            .cta-btn:hover {
+            background: darken(var(--accent), 5%);
+            }
+
+             @media (max-width: 480px) {
+                .hero-content h1 {
+                    font-size: 1.4rem;
+                    text-align: center;
+                }
+                .hero-content p {
+                    font-size: 0.95rem;
+                }
+
+                .hero-buttons {
+                    gap: 8px;
+                }
+
+                .hero-buttons {
+                    flex-direction: column;
+                }
+            
+            }
+
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+
+             /* === MENÚ HAMBURGUESA === */
+        /* ===================== MENU HAMBURGUESA ===================== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background: var(--white);
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+/* Estado activo (animación al abrir) */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Estilos del menú en mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+    z-index: 1001;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(44, 44, 44, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: 0.4s ease-in-out;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+}
+
+    /* === Ajustes del HERO para pantallas pequeñas === */
+@media (max-width: 480px) {
+  .hero {
+    padding: 100px 15px 60px;
+    background-position: center top;
+  }
+
+  .hero-content {
+    max-width: 90%;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .hero-content h2 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    word-break: break-word;
+    margin-bottom: 10px;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+  }
+
+  .hero-content a {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+/* === Animación de entrada para el HERO === */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplicar la animación al contenido del hero */
+.hero-content {
+  opacity: 0;
+  animation: fadeSlideIn 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* Ajuste extra para pantallas pequeñas */
+@media (max-width: 480px) {
+  .hero-content {
+    text-align: center;
+    animation-delay: 0.2s;
+  }
+}
+}

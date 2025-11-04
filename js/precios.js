@@ -28,7 +28,7 @@ async function cargarPrecios() {
     document.getElementById("precioCorteExpress").textContent = "$" + datos.corte_express;
     document.getElementById("precioAfeitadoClasico").textContent = "$" + datos.afeitado_clasico;
     document.getElementById("precioBarbaPerfecta").textContent = "$" + datos.barba_perfecta;
-    document.getElementById("precioComboCompleto").textContent = "$" + datos.combo_completo;
+    document.getElementById("precioComboCompleto").textContent = "$" + datos.Combo_completo;
   } else {
     console.log("No hay datos de precios");
   }

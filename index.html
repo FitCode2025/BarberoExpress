@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barbero Express - Tu Estilo, Al Instante</title>
+    <title>Barbero a Domicilio - Cortes, Afeitados y Cursos Certificados</title>
+    <meta name="description" content="Barbero a domicilio en Buenos Aires. Cortes, afeitados, y cursos con certificado incluido. Servicio profesional sin salir de casa.">
+  <meta name="keywords" content="barbero a domicilio, barbería, cursos de barbería, cortes de pelo, afeitado, certificado de barbería, peluquero a domicilio Buenos Aires">
+  <meta name="author" content="Barbero Express">
+  <meta name="description" content="Barbero y peluquero profesional a domicilio en Guernica, Glew, Longchamps, Alejandro Korn y San Vicente. Cortes masculinos y femeninos con técnicas modernas y atención personalizada.">
+
     <link rel="icon" type="image/x-icon" href="/assets/images/logo.png">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -27,9 +32,16 @@
   <div class="logo-container">
             <img src="/assets/images/logo.png" alt="Barbero Express Logo" class="logo">
         </div>
+
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#cursos">Cursos</a></li>
             <li><a href="#nosotros">Quien soy</a></li>
             <li><a href="#galeria">Galería</a></li>
             <li><a href="#contacto">Contacto</a></li>
@@ -58,8 +70,9 @@
 
     <!-- SERVICES SECTION -->
     <section class="services fade-in" id="servicios">
-        <h2 class="section-title fade-in">Servicios Premium</h2>
-        <p class="section-subtitle fade-in">Experiencia profesional con la mejor atención</p>
+        <h2 class="section-title fade-in">Servicios a Domicilio</h2>
+        <p class="section-subtitle fade-in">Todos los servicios se realizan con productos de primera calidad y en un ambiente cómodo y seguro, en tu propio hogar.
+    </p>
         <div class="services-grid">
             <div class="service-card scale-in">
                 <h3>CORTE EXPRESS</h3>
@@ -69,38 +82,63 @@
             </div>
             <div class="service-card scale-in">
                 <h3>BARBA PERFECTA</h3>
-                <p>Perfilado, recorte y cuidado completo de barba. Técnicas tradicionales con toalla caliente y productos especializados para un acabado impecable.</p>
-                <div class="price"><span id="precioBarbaPerfecta">$6.000</span></div>
+                <p>Perfilado, recorte y cuidado completo de barba. Técnicas tradicionales y productos especializados para un acabado impecable.</p>
+                <div class="price"><span id="precioBarbaPerfecta">$4.000</span></div>
                 <button class="service-btn">Reservar</button>
             </div>
             <div class="service-card scale-in">
-                <h3>AFEITADO CLÁSICO</h3>
-                <p>La experiencia definitiva. Afeitado tradicional con navaja, toalla caliente, productos premium y masaje facial relajante. Puro ritual de barbería.</p>
-                <div class="price"><span id="precioAfeitadoClasico">$7.500</span></div>
+                <h3>CORTE CON AFEITADORA</h3>
+                <p>La experiencia definitiva. Afeitado tradicional, toalla caliente, productos premium y masaje facial relajante. Puro ritual de barbería.</p>
+                <div class="price"><span id="precioAfeitadoClasico">$8.500</span></div>
                 <button class="service-btn">Reservar</button>
             </div>
             <div class="service-card scale-in" style="border-color: var(--accent); background: rgba(212, 175, 55, 0.1);">
                 <h3>COMBO COMPLETO</h3>
                 <p>Corte + Barba. El paquete completo para lucir impecable. Ahorra tiempo y dinero con la mejor oferta.</p>
-                <div class="price"><span id="precioComboCompleto">$14.000</span></div>
+                <p class="tachado"><span>$14.000</span></p>
+                <div class="price"><span id="precioComboCompleto">$9.000</span></div>
                 <button class="service-btn" style="background: var(--accent); color: var(--secondary);">Reservar Ahora</button>
             </div>
         </div>
     </section>
+
+    <!-- ===== SECCIÓN CURSOS ===== -->
+<section class="courses fade-in" id="cursos">
+  <div class="container">
+    <h2 class="section-title">Cursos de Barbería Certificados</h2>
+    <p class="section-description">
+      Formate con <strong>Barbero Express</strong> y aprendé las técnicas actualizadas de barbería y peluquería desde tu casa. 
+       Dictamos cursos personalizados con <strong>certificado oficial de finalización</strong>, ideales para principiantes o barberos que buscan perfeccionarse.
+    </p>
+
+    <div class="course-card">
+      <div class="course-image">
+        <img src="assets/images/certificado.jpg" alt="Certificado del curso de barbería">
+      </div>
+      <div class="course-content">
+        <h3>Curso de Barbería y Peluquería</h3>
+        <p>
+          Aprendé cortes clásicos, degradados, afeitados y técnicas modernas. Ideal para quienes quieren comenzar su camino profesional.
+          Incluye asesoramiento y certificado.
+        </p>
+        <a href="https://wa.me/5491167308312?text=¡Hola!%20Quiero%20más%20información%20sobre%20los%20cursos%20de%20barbería." 
+           class="btn-primary">Consultar por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- ABOUT SECTION -->
     <section class="about fade-in" id="nosotros">
         <div class="about-content">
             <h2 class="fade-in-left">Donde la Tradición Encuentra la Modernidad</h2>
             <p class="fade-in-right">
-    Barbero Express no tiene un local físico: soy un barbero y peluquero profesional que trabaja a domicilio, llevando la experiencia de una barbería completa directamente hasta tu casa.
-    Me muevo en moto, lo que me permite llegar rápido y atender varios clientes por día, manteniéndome siempre dentro de mi zona: Guernica, Glew, Longchamps, Alejandro Korn y San Vicente.
+            Barbero y peluquero profesional que trabaja a domicilio, llevando la experiencia de una barbería completa directamente hasta tu casa.
+    Mi movilidad propia, me permite llegar rápido y atender varios clientes al día, manteniéndome siempre dentro de mi zona: Guernica, Glew, Longchamps, Alejandro Korn y San Vicente.
 
     Combino la maestría tradicional de la barbería clásica con las tendencias modernas del estilismo masculino y femenino, porque además de barbero, soy peluquero con formación profesional.
     Trabajo con productos premium y herramientas de calidad para que cada corte, afeitado o peinado tenga el resultado perfecto que buscás.
-
-    No soy una barbería más: soy tu opción práctica, profesional y cercana, donde el cuidado personal es un ritual con estilo, sin que tengas que moverte de tu casa.</p>
-            <p class="fade-in-left">Soy un artista capacitado con técnicas tradicionales y tendencias actuales. Mi atencion incluye productos premium, herramientas profesionales y dedico el tiempo necesario para que salgas luciendo exactamente como queres.</p>
             <p class="fade-in-right">No es una barbería más. Es tu espacio de confianza, donde el cuidado personal es un ritual, no una rutina.</p>
             <p class="about-cta fade-in">Descubre la diferencia Barbero Express</p>
             <a href="#reservar" class="btn-primary fade-in">AGENDA TU CITA HOY</a>
@@ -113,13 +151,13 @@
         <p class="section-subtitle fade-in">Resultados reales de clientes satisfechos</p>
         <div class="gallery-grid">
             <div class="gallery-item scale-in">
-                <img src="assets/images/mujer 3.jpg" alt="Corte moderno fade">
+                <img src="assets/images/diamante.png" alt="Corte moderno fade">
             </div>
             <div class="gallery-item scale-in">
-                <img src="assets/images/lineas_atras.jpg" alt="Barba perfilada">
+                <img src="assets/images/corte_niño.png" alt="Barba perfilada">
             </div>
             <div class="gallery-item scale-in">
-                <img src="assets/images/mujer 2.jpg" alt="Herramientas de barbería">
+                <img src="assets/images/pelo_mujer.png" alt="Herramientas de barbería">
             </div>
             <div class="gallery-item scale-in">
                 <img src="assets/images/corte_lineas.jpg" alt="Corte con tijera">
@@ -162,7 +200,7 @@
     <!-- CTA FINAL SECTION -->
     <section class="cta-final" id="reservar">
         <h2>Tu Mejor Versión Está a Un Clic de Distancia</h2>
-        <p class="subtitle">No esperes más para lucir impecable. Agenda tu cita ahora y descubre por qué soy la barbería preferida.</p>
+        <p class="subtitle">No esperes más para lucir impecable. Agenda tu cita ahora y descubre por qué soy el barbero preferido de mis clientes.</p>
         <div class="highlight-box">
             🎁 Primera cita: 15% de descuento en servicios combinados
         </div>
@@ -180,15 +218,14 @@
             </div>
             <div class="footer-section">
                 <h3>CONTACTO</h3>
-                <p><strong>📍 UBICACIÓN</strong><br>
-                Pueyrredon 106,<br>
-                Guernica, Buenos Aires</p>
+                <p><strong>📍 ZONA DE ATENCION</strong><br>
+                Guernica, Glew, Longchamps, Alejandro Korn y San Vicente.<br> , Buenos Aires</p>
                 <p style="margin-top: 1rem;"><strong>⏰ HORARIOS</strong><br>
                 Lunes a Viernes: 9:00 - 20:00<br>
-                Sábados: 9:00 - 18:00<br>
-                Domingos: Cerrado</p>
-                <p style="margin-top: 1rem;"><strong>📱 WhatsApp:</strong> +54 9 11 1234-5678<br>
-                <strong>📧 Email:</strong> contacto@barberoexpress.com</p>
+                Sábados: con cita previa<br>
+                Domingos: con cita previa</p>
+                <p style="margin-top: 1rem;"><strong>📱 WhatsApp:</strong> +54 9 11 6730-8312<br>
+                <strong>📧 Email:</strong> j.m.e.l.p.s.c14@gmail.com</p>
             </div>
             <div class="footer-section">
                 <h3>ENLACES RÁPIDOS</h3>
@@ -196,7 +233,7 @@
                 <a href="#quiensoy">Quien Soy</a>
                 <a href="#galeria">Galería</a>
                 <a href="#reservar">Reservar Cita</a>
-                <a href="#">Política de Privacidad</a>
+                <a href="#cursos">Cursos</a>
             </div>
             <div class="footer-section">
                 <h3>SÍGUENOS</h3>
@@ -210,9 +247,6 @@
                     <a href="https://tiktok.com/@barberoexpress" class="social-icon" target="_blank" title="TikTok">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Ionicons_logo-tiktok.svg" alt="TikTok">
                     </a>
-                    <a href="https://youtube.com/@barberoexpress" class="social-icon" target="_blank" title="YouTube">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
-                    </a>
                 </div>
                 <p style="margin-top: 1.5rem;">Comparte tu experiencia y etiquétanos en tus fotos con #BarberoExpress</p>
                 <div class="logo-footer-container">
@@ -221,7 +255,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Barbero Express. Todos los derechos reservados. | Diseño creado por Coria Gaston</p>
+            <p>© 2025 Barbero Express. Barberia y Peluqueria a domicilio - Todos los derechos reservados. | Diseño creado por Coria Gaston</p>
         </div>
     </footer>
 

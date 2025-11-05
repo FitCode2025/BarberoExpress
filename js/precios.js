@@ -1,7 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// Firebase CDN - versión modular
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -28,11 +27,9 @@ async function cargarPrecios() {
     document.getElementById("precioCorteExpress").textContent = "$" + datos.corte_express;
     document.getElementById("precioAfeitadoClasico").textContent = "$" + datos.afeitado_clasico;
     document.getElementById("precioBarbaPerfecta").textContent = "$" + datos.barba_perfecta;
-    document.getElementById("precioComboCompleto").textContent = "$" + datos.Combo_completo;
+    document.getElementById("precioComboCompleto").textContent = "$" + datos.combo_completo;
   } else {
     console.log("No hay datos de precios");
   }
 }
 cargarPrecios();
-
-import { getFirestore, doc, getDoc } from "firebase/firestore";

@@ -339,15 +339,6 @@
     `;
     document.head.appendChild(pulseStyle);
 
-    // Import the functions you need from the SDKs you need
-
-     const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
-
   // === MENU HAMBURGUESA ===
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');

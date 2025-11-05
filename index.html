@@ -14,12 +14,14 @@
 </head>
 <body>
     <!-- LOADING SCREEN -->
-    <div class="loading-screen">
+    <div id="loading-screen" class="loading-screen">
         <div class="loader"></div>
         <img src="/assets/images/logo.png" alt="Barbero Express Logo" class="loading-logo">
         <p class="loading-text">Barbero Express - A domicilio</p>
     </div>
 
+
+    <div id="main-content" class="hidden">
     <!-- CUSTOM CURSOR -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
@@ -76,7 +78,7 @@
         <div class="services-grid">
             <div class="service-card scale-in">
                 <h3>CORTE EXPRESS</h3>
-                <p>Corte profesional con tijera y máquina. Incluye lavado, corte personalizado según tu estilo y acabado con productos premium.</p>
+                <p>Corte profesional con tijera y máquina. Corte personalizado según tu estilo y acabado con productos premium.</p>
                 <div class="price"><span id="precioCorteExpress">$8.000</span></div>
                 <button class="service-btn">Reservar</button>
             </div>
@@ -95,7 +97,7 @@
             <div class="service-card scale-in" style="border-color: var(--accent); background: rgba(212, 175, 55, 0.1);">
                 <h3>COMBO COMPLETO</h3>
                 <p>Corte + Barba. El paquete completo para lucir impecable. Ahorra tiempo y dinero con la mejor oferta.</p>
-                <p class="tachado"><span>$14.000</span></p>
+                <p class="tachado"><span>$12.000</span></p>
                 <div class="price"><span id="precioComboCompleto">$9.000</span></div>
                 <button class="service-btn" style="background: var(--accent); color: var(--secondary);">Reservar Ahora</button>
             </div>
@@ -151,22 +153,40 @@
         <p class="section-subtitle fade-in">Resultados reales de clientes satisfechos</p>
         <div class="gallery-grid">
             <div class="gallery-item scale-in">
-                <img src="assets/images/diamante.png" alt="Corte moderno fade">
+                    <p>Corte moderno con rayas al costado</p>
+                <img src="assets/images/linea.jpg" alt="Corte moderno fade">
+                <div class="overlay">
+                </div>
             </div>
             <div class="gallery-item scale-in">
-                <img src="assets/images/corte_niño.png" alt="Barba perfilada">
+                    <p>Lineas a pedido</p>
+                    <img src="assets/images/corte_niño.png" alt="Corte de niño">
+                    <div class="overlay">
+                    </div>
             </div>
             <div class="gallery-item scale-in">
-                <img src="assets/images/pelo_mujer.png" alt="Herramientas de barbería">
+                   <p>Corte y peinado mujer</p>
+                    <img src="assets/images/pelo_mujer.png" alt="Corte de pelo mujer">
+                    <div class="overlay">
+                    </div>
             </div>
             <div class="gallery-item scale-in">
-                <img src="assets/images/corte_lineas.jpg" alt="Corte con tijera">
+                    <img src="assets/images/corte_lineas.jpg" alt="Corte con tijera">
+                    <div class="overlay">
+                        <p>Corte de lineas</p>
+                    </div>
             </div>
             <div class="gallery-item scale-in">
-                <img src="assets/images/lineas_lateral.jpg" alt="Ambiente barbería">
+                    <img src="assets/images/lineas_lateral.jpg" alt="Ambiente barbería">
+                    <div class="overlay">
+                        <p>Ambiente barbería</p>
+                </div>
             </div>
             <div class="gallery-item scale-in">
-                <img src="assets/images/en_punta.jpg" alt="Afeitado clásico">
+                    <img src="assets/images/en_punta.jpg" alt="Afeitado clásico">
+                    <div class="overlay">
+                        <p>Afeitado clásico</p>
+                </div>
             </div>
         </div>
         <div class="gallery-cta fade-in">
@@ -174,6 +194,7 @@
             <a href="#reservar" class="btn-primary">AGENDA TU CITA</a>
         </div>
     </section>
+
 
     <!-- TESTIMONIALS SECTION -->
     <section class="testimonials fade-in">
@@ -270,7 +291,18 @@
 
     <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script src="/js/precios.js"></script>
-    <script type="module" src="/js/script.js"></script>
+    <script type="module" src="./js/precios.js"></script>
+    <script type="module" src="./js/script.js"></script>
+
+    <script>
+  window.addEventListener("load", () => {
+    const loading = document.getElementById("loading-screen");
+    loading.style.opacity = "0";
+    setTimeout(() => {
+      loading.style.display = "none";
+    }, 500); // medio segundo de transición
+  });
+</script>
+    </div> <!-- CIERRE DE MAIN CONTENT -->
 </body>
 </html>
